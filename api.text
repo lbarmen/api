@@ -1,0 +1,28 @@
+Файловая структура
+├─ api/
+├─── config/
+├────── database.php - подключение к бд
+├────── table.php - настройка доступности таблиц
+├─── objects/
+├────── Table.php - работа с бд
+├─── SessionSubscribe/
+├────── create.php - запись на сессию *sessionId=?, *userEmail=?
+├─── PostNews/
+├────── create.php - вставить новость *userEmail=?, *newsTitle=?, *newsMessage=?
+├─── shared/
+├────── Utilities.php - вспомогательная функция показа ошибок
+├─── table/
+├────── read.php - получение данных из таблиц id=?, *table=?
+
+* обязательные данные
+
+Настройки:
+Таблицы доступные для метода Table => read.php, написаны в настройках config => config.php
+
+SQL:
+/api/radio.sql
+
+Пример работы:
+/api/test.php?id=1 - /api/table/read.php показ таблицы Session
+/api/test.php?id=2 - /api/sessionsubscribe/create.php запись на сессию
+/api/test.php?id=3 - /api/postnews/create.php отправка новости
